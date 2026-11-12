@@ -599,7 +599,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   </div>
 </section>
 
-<div class="nls-strip hairline fade" id="newsletter">
+<!-- Newsletter temporarily hidden: re-enable only with a separate Formspree endpoint so signups are not mixed into the business inquiry form (xgoqabya). -->
+<div class="nls-strip hairline fade" id="newsletter" hidden aria-hidden="true">
   <span class="nls-label">Weekly Brief</span>
   <div class="nls-form">
     <input class="nls-input" type="email" placeholder="Your email address" aria-label="Email">
@@ -624,10 +625,16 @@ const io=new IntersectionObserver(
 document.querySelectorAll('.fade').forEach(el=>io.observe(el));
 
 
-document.getElementById('sbtn').onclick=function(){
-  const inp=document.querySelector('.nls-input');
-  if(inp.value&&inp.value.includes('@')){this.textContent='Subscribed';inp.value=''}else inp.focus();
-};
+/* Newsletter subscribe handler preserved; inactive while #newsletter is hidden. */
+(function(){
+  const btn=document.getElementById('sbtn');
+  const strip=document.getElementById('newsletter');
+  if(!btn||!strip||strip.hasAttribute('hidden')) return;
+  btn.onclick=function(){
+    const inp=document.querySelector('.nls-input');
+    if(inp.value&&inp.value.includes('@')){this.textContent='Subscribed';inp.value=''}else inp.focus();
+  };
+})();
 </script>
 </body>
 </html>
