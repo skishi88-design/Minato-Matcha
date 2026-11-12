@@ -599,7 +599,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
   </div>
 </section>
 
-<!-- Newsletter temporarily hidden: re-enable only with a separate Formspree endpoint so signups are not mixed into the business inquiry form (xgoqabya). -->
+<!-- Newsletter temporarily hidden -->
 <div class="nls-strip hairline fade" id="newsletter" hidden aria-hidden="true">
   <span class="nls-label">Weekly Brief</span>
   <div class="nls-form">
@@ -625,7 +625,6 @@ const io=new IntersectionObserver(
 document.querySelectorAll('.fade').forEach(el=>io.observe(el));
 
 
-/* Newsletter subscribe handler preserved; inactive while #newsletter is hidden. */
 (function(){
   const btn=document.getElementById('sbtn');
   const strip=document.getElementById('newsletter');
