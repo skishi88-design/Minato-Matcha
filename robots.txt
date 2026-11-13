@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minatomatcha.com/sitemap.xml
